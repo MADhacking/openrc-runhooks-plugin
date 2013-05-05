@@ -50,11 +50,24 @@ AC_PROG_LIBTOOL
 dnl Check for correct source directory.
 AC_CONFIG_SRCDIR([src/openrc-runhooks-plugin.c])
 
-nl Set the location of the autoconf generated config.h.
+dnl Set the location of the autoconf generated config.h.
 AM_CONFIG_HEADER(include/config.h:aux_dir/config.in)
 
 dnl Set the location of the makefiles.
 AC_CONFIG_FILES([Makefile])
+
+RC_LIB_DIR="/lib/rc"
+AC_SUBST(RC_LIB_DIR)
+AC_DEFINE_UNQUOTED(RC_LIB_DIR, "$RC_LIB_DIR", [Description: Path to the OpenRC lib directory.])
+
+OPENRC_PLUGIN_DIR="$RC_LIB_DIR/plugins"
+AC_SUBST(OPENRC_PLUGIN_DIR)
+AC_DEFINE_UNQUOTED(OPENRC_PLUGIN_DIR, "$OPENRC_PLUGIN_DIR", [Description: Path to the OpenRC plugin directory.])
+
+RC_HOOKS_DIR="/lib/rc.hooks"
+AC_SUBST(RC_HOOKS_DIR)
+AC_DEFINE_UNQUOTED(RC_HOOKS_DIR, "$RC_HOOKS_DIR", [Description: Path to the OpenRC-runhooks-plugin hooks directory.])
+
 
 dnl Generate config.status and launch it.
 AC_OUTPUT

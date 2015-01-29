@@ -7,3 +7,6 @@ libtool
 aux_dir
 autom4te.cache
 .deps
+openrc-runhooks-plugin.lo
+openrc-runhooks-plugin.la
+.libs
